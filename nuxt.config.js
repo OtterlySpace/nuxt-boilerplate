@@ -1,4 +1,5 @@
 import colors from "vuetify/es5/util/colors"
+import { createSEOMeta } from "./utils/seo"
 
 export default {
 	// Target (https://go.nuxtjs.dev/config-target)
@@ -14,7 +15,13 @@ export default {
 				name: "viewport",
 				content: "width=device-width, initial-scale=1"
 			},
-			{ hid: "description", name: "description", content: "" }
+			{ hid: "description", name: "description", content: "" },
+			...createSEOMeta({
+				title: "Boilerplate",
+				description: "Boilerplate is a Boilerplate",
+				image: "share.png",
+				url: process.env.HOST_NAME
+			})
 		],
 		link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]
 	},
