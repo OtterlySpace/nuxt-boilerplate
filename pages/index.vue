@@ -6,7 +6,7 @@
 			</div>
 			<v-card>
 				<v-card-title class="headline">
-					Welcome to the Vuetify + Nuxt.js template
+					{{ $t("index.welcome") }}
 				</v-card-title>
 				<v-card-text>
 					<p>
