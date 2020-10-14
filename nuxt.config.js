@@ -8,7 +8,7 @@ export default {
 	// Global page headers (https://go.nuxtjs.dev/config-head)
 	head: {
 		titleTemplate: "%s - nuxt-boilerplate",
-		title: "nuxt-boilerplate",
+		title: "Todo List",
 		meta: [
 			{ charset: "utf-8" },
 			{
@@ -42,7 +42,9 @@ export default {
 		// https://go.nuxtjs.dev/stylelint
 		"@nuxtjs/stylelint-module",
 		// https://go.nuxtjs.dev/vuetify
-		"@nuxtjs/vuetify"
+		"@nuxtjs/vuetify",
+		// https://github.com/nuxt-community/tailwindcss-module
+		"@nuxtjs/tailwindcss"
 	],
 
 	// Modules (https://go.nuxtjs.dev/config-modules)
