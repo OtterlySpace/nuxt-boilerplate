@@ -1,6 +1,8 @@
 import colors from "vuetify/es5/util/colors"
 import { createSEOMeta } from "./utils/seo"
 
+import fr from "./lang/fr-FR.js"
+
 export default {
 	// Target (https://go.nuxtjs.dev/config-target)
 	target: "static",
@@ -54,7 +56,9 @@ export default {
 		// https://go.nuxtjs.dev/pwa
 		"@nuxtjs/pwa",
 		// https://go.nuxtjs.dev/content
-		"@nuxt/content"
+		"@nuxt/content",
+		// https://i18n.nuxtjs.org/
+		"nuxt-i18n"
 	],
 
 	// Axios module configuration (https://go.nuxtjs.dev/config-axios)
@@ -62,6 +66,18 @@ export default {
 
 	// Content module configuration (https://go.nuxtjs.dev/config-content)
 	content: {},
+
+	// I18n module configuration https://i18n.nuxtjs.org/basic-usage
+	i18n: {
+		locales: ["fr"],
+		defaultLocale: "fr",
+		vueI18n: {
+			fallbackLocale: "fr",
+			messages: {
+				fr
+			}
+		}
+	},
 
 	// Vuetify module configuration (https://go.nuxtjs.dev/config-vuetify)
 	vuetify: {
