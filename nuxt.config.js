@@ -1,6 +1,7 @@
 import { createSEOMeta } from "./utils/seo"
 
-import fr from "./lang/fr-FR.js"
+import fr from "./lang/fr.json"
+import en from "./lang/en.json"
 
 export default {
 	// Target (https://go.nuxtjs.dev/config-target)
@@ -71,7 +72,8 @@ export default {
 		vueI18n: {
 			fallbackLocale: "fr",
 			messages: {
-				fr
+				fr,
+				en
 			}
 		}
 	},

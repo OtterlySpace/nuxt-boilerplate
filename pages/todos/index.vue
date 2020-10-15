@@ -3,7 +3,7 @@
 		<div>
 			<Header :options="header_options" />
 			<div class="grid grid-cols-1 gap-4">
-				<Button />
+				<TodoAdd />
 				<Todo v-for="todo in todos" :key="todo.id" :todo="todo" />
 			</div>
 		</div>
@@ -11,8 +11,11 @@
 </template>
 
 <script lang="ts">
-export default {
-	layout: "default",
+import { Component, Vue } from "nuxt-property-decorator"
+
+@Component({})
+export default class TodosPage extends Vue {
+	layout = "default"
 	data() {
 		return {
 			header_options: {
