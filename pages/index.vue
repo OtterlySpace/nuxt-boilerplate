@@ -3,32 +3,14 @@
 		<div>
 			<Header :options="header_options" />
 			<div class="grid grid-cols-1 gap-4">
-				<div class="text-3xl font-medium">Bienvenue👋</div>
-				<div class="font-medium">
-					Connectez-vous pour consulter votre todo list
-				</div>
-				<input
-					class="flex-grow w-full bg-gray-100 rounded border border-gray-400 focus:outline-none focus:border-indigo-500 text-base px-4 py-2 mr-4"
-					placeholder="Username"
-					type="text"
+				<H1 content="Bienvenue👋" />
+				<Introduction
+					content="Connectez-vous pour consulter votre todo list"
 				/>
-				<input
-					class="flex-grow w-full bg-gray-100 rounded border border-gray-400 focus:outline-none focus:border-indigo-500 text-base px-4 py-2 mr-4"
-					placeholder="Mot de passe"
-					type="password"
-				/>
-				<nuxt-link
-					to="todos/"
-					class="text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg text-center"
-				>
-					Se connecter
-				</nuxt-link>
-				<nuxt-link
-					to="account/create"
-					class="text-sm text-gray-600 hover:text-gray-700 text-center"
-				>
-					S'inscrire
-				</nuxt-link>
+				<Input placeholder="Username" type="text" />
+				<Input placeholder="Mot de passe" type="password" />
+				<ButtonLarge to="todos/" content="Se connecter" />
+				<ButtonLargeAlt to="account/create" content="S'inscrire" />
 			</div>
 		</div>
 	</div>

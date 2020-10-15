@@ -13,8 +13,8 @@
 				<span class="sm:ml-2 text-xl">Todo list</span>
 			</nuxt-link>
 			<nuxt-link
-				to="/"
 				v-if="options.active"
+				to="/"
 				class="inline-flex items-center bg-gray-200 border-0 py-1 px-3 focus:outline-none hover:bg-gray-300 rounded text-base"
 			>
 				<svg
