@@ -61,9 +61,7 @@ export default class AccountCreate extends Vue {
 	}
 
 	login() {
-		if (process.client && this.$router) {
-			this.$router.push("/")
-		}
+		this.$router.push("/")
 	}
 }
 </script>
