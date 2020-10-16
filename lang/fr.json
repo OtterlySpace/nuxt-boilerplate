@@ -1,0 +1,21 @@
+{
+  "user": {
+    "username": "Nom d'utilisateur",
+    "email": "Adresse électronique",
+    "password": "Mot de passe",
+    "password-repeat": "Répéter le mot de passe"
+  },
+  "onboard": {
+    "intro": "Connectez vous pour consulter votre todo list",
+    "welcome": "Bienvenue👋",
+    "register-form": "Ceci est un formulaire d'inscription"
+  },
+  "actions": {
+    "login": "Se connecter",
+    "register": "S'inscrire",
+    "logout": "Se déconnecter"
+  },
+  "app": {
+    "name": "Todo List"
+  }
+}

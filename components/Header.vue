@@ -10,11 +10,11 @@
 					width="60"
 					alt="Le logo d'Otterly"
 				/>
-				<span class="sm:ml-2 text-xl">Todo list</span>
+				<span class="sm:ml-2 text-xl">{{ $t("app.name") }}</span>
 			</nuxt-link>
 			<nuxt-link
-				to="/"
 				v-if="options.active"
+				to="/"
 				class="inline-flex items-center bg-gray-200 border-0 py-1 px-3 focus:outline-none hover:bg-gray-300 rounded text-base"
 			>
 				<svg
@@ -31,7 +31,7 @@
 						d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"
 					></path>
 				</svg>
-				Se déconnecter
+				{{ $t("actions.logout") }}
 			</nuxt-link>
 		</div>
 	</header>

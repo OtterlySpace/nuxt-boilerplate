@@ -3,46 +3,53 @@
 		<div>
 			<Header :options="header_options" />
 			<div class="grid grid-cols-1 gap-4">
-				<div class="text-3xl font-medium">Bienvenue👋</div>
-				<div class="font-medium">
-					Connectez-vous pour consulter votre todo list
-				</div>
-				<input
-					class="flex-grow w-full bg-gray-100 rounded border border-gray-400 focus:outline-none focus:border-indigo-500 text-base px-4 py-2 mr-4"
-					placeholder="Username"
+				<H1 :content="$t('onboard.welcome')" />
+				<Introduction :content="$t('onboard.intro')" />
+				<Input
+					:placeholder="$t('user.username')"
 					type="text"
+					@input="(val) => input('username', val)"
 				/>
-				<input
-					class="flex-grow w-full bg-gray-100 rounded border border-gray-400 focus:outline-none focus:border-indigo-500 text-base px-4 py-2 mr-4"
-					placeholder="Mot de passe"
+				<Input
+					:placeholder="$t('user.password')"
 					type="password"
+					@input="(val) => input('password', val)"
 				/>
-				<nuxt-link
-					to="todos/"
-					class="text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg text-center"
-				>
-					Se connecter
-				</nuxt-link>
-				<nuxt-link
-					to="account/create"
-					class="text-sm text-gray-600 hover:text-gray-700 text-center"
-				>
-					S'inscrire
-				</nuxt-link>
+				<ButtonLarge :content="$t('actions.login')" @click="login" />
+				<ButtonLarge
+					alt
+					:content="$t('actions.register')"
+					@click="register"
+				/>
 			</div>
 		</div>
 	</div>
 </template>
 
 <script lang="ts">
-export default {
-	layout: "default",
+import { Component, Vue } from "nuxt-property-decorator"
+
+@Component({})
+export default class HomePage extends Vue {
+	layout = "default"
 	data() {
 		return {
 			header_options: {
 				active: false
 			}
 		}
+	}
+
+	input(field: string, value: string) {
+		console.log(field, value)
+	}
+
+	register() {
+		this.$router.push("/account/create")
+	}
+
+	login() {
+		this.$router.push("/todos")
 	}
 }
 </script>

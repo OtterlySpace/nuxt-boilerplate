@@ -3,54 +3,65 @@
 		<div>
 			<Header :options="header_options" />
 			<div class="grid grid-cols-1 gap-4">
-				<div class="font-medium">
-					Ceci est un formulaire d'inscription
-				</div>
-				<input
-					class="flex-grow w-full bg-gray-100 rounded border border-gray-400 focus:outline-none focus:border-indigo-500 text-base px-4 py-2 mr-4"
-					placeholder="Username"
+				<Introduction :content="$t('onboard.register-form')" />
+				<Input
+					:placeholder="$t('user.username')"
 					type="text"
+					@input="(val) => input('username', val)"
 				/>
-				<input
-					class="flex-grow w-full bg-gray-100 rounded border border-gray-400 focus:outline-none focus:border-indigo-500 text-base px-4 py-2 mr-4"
-					placeholder="E-mail"
+				<Input
+					:placeholder="$t('user.email')"
 					type="email"
+					@input="(val) => input('email', val)"
 				/>
-				<input
-					class="flex-grow w-full bg-gray-100 rounded border border-gray-400 focus:outline-none focus:border-indigo-500 text-base px-4 py-2 mr-4"
-					placeholder="Mot de passe"
+				<Input
+					:placeholder="$t('user.password')"
 					type="password"
+					@input="(val) => input('password', val)"
 				/>
-				<input
-					class="flex-grow w-full bg-gray-100 rounded border border-gray-400 focus:outline-none focus:border-indigo-500 text-base px-4 py-2 mr-4"
-					placeholder="Répéter le mot de passe"
+				<Input
+					:placeholder="$t('user.password-repeat')"
 					type="password"
+					@input="(val) => input('passwordRepeat', val)"
 				/>
-				<button
-					class="text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg"
-				>
-					S'incrire
-				</button>
-				<nuxt-link
-					to="/"
-					class="text-sm text-gray-600 hover:text-gray-700 text-center"
-				>
-					Se connecter
-				</nuxt-link>
+				<ButtonLarge
+					:content="$t('actions.register')"
+					@click="register"
+				/>
+				<ButtonLarge
+					alt
+					:content="$t('actions.login')"
+					@click="login"
+				/>
 			</div>
 		</div>
 	</div>
 </template>
 
 <script lang="ts">
-export default {
-	layout: "default",
+import { Component, Vue } from "nuxt-property-decorator"
+
+@Component({})
+export default class AccountCreate extends Vue {
+	layout = "default"
 	data() {
 		return {
 			header_options: {
 				active: false
 			}
 		}
+	}
+
+	input(field: string, value: string) {
+		console.log(field, value)
+	}
+
+	register() {
+		this.$router.push("/todos")
+	}
+
+	login() {
+		this.$router.push("/")
 	}
 }
 </script>
