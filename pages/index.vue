@@ -14,6 +14,7 @@
 					:placeholder="$t('user.password')"
 					type="password"
 					@input="(val) => (password = val)"
+					@keyup.enter.native="login"
 				/>
 				<ButtonLarge :content="$t('actions.login')" @click="login" />
 				<ButtonLarge
@@ -55,10 +56,16 @@ export default class HomePage extends Vue {
 
 	created() {
 		this.loadUserAction()
+			.then(() => {
+				this.$router.push("/todos")
+			})
+			.catch((err) => {
+				console.log(err)
+			})
 	}
 
 	register() {
-		this.$router.push("/account/create")
+		this.$router.push("/users/create")
 	}
 
 	login() {
@@ -66,7 +73,12 @@ export default class HomePage extends Vue {
 			username: this.username,
 			password: this.password
 		})
-		// this.$router.push("/todos")
+			.then(() => {
+				this.$router.push("/todos")
+			})
+			.catch((err) => {
+				console.log(err)
+			})
 	}
 }
 </script>
