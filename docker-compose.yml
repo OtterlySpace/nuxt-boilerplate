@@ -1,0 +1,22 @@
+version: "3.7"
+
+services:
+    nuxt-boilerplate:
+        build:
+            context: .
+            dockerfile: ./nuxt.Dockerfile
+        volumes:
+        - .:/usr/src/app/ # Enable hot reload in the app container
+        networks:
+            - traefik
+            - nuxt-boilerplate
+        labels:
+            - "traefik.enable=true"
+            - "traefik.http.routers.nuxt-boilerplate.rule=Host(`localhost.otterly.eu`)" # Change to your domain
+            - "traefik.http.services.nuxt-boilerplate.loadbalancer.server.port=3000" # Change the port to your app port
+            - "traefik.http.routers.nuxt-boilerplate.tls.certresolver=letsencrypt-ovhdns"
+            - "traefik.http.routers.nuxt-boilerplate.entrypoints=websecure"
+networks:
+    traefik:
+        name: traefik
+    nuxt-boilerplate: # Remember to add another network to allow your containers to communicate

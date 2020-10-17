@@ -8,11 +8,15 @@ import { InMemoryCache } from "apollo-cache-inmemory"
 const httpLink = createHttpLink({
 	// You should use an absolute URL here
 	uri: process.env.API_URL,
-	fetch
+	// @ts-ignore
+	fetch,
+	credentials: "include"
 })
 
 // Cache implementation
-const cache = new InMemoryCache()
+const cache = new InMemoryCache({
+	addTypename: false
+})
 
 // Create the apollo client
 export const apolloClient = new ApolloClient({
