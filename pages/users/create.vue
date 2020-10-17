@@ -42,7 +42,7 @@
 import { Component, Vue } from "nuxt-property-decorator"
 
 @Component({})
-export default class AccountCreate extends Vue {
+export default class UsersCreate extends Vue {
 	layout = "default"
 	data() {
 		return {

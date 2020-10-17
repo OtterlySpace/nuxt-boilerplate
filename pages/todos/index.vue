@@ -12,6 +12,7 @@
 
 <script lang="ts">
 import { Component, Vue } from "nuxt-property-decorator"
+import { State, Getter, Action, Mutation, namespace } from "vuex-class"
 
 @Component({})
 export default class TodosPage extends Vue {
