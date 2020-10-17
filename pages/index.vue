@@ -30,7 +30,6 @@
 <script lang="ts">
 import { Component, Vue } from "nuxt-property-decorator"
 import { State, Getter, Action, Mutation, namespace } from "vuex-class"
-import { User } from "~/store/types"
 
 @Component({})
 export default class HomePage extends Vue {

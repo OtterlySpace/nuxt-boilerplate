@@ -25,9 +25,9 @@
 				/>
 				<span class="sm:ml-2 text-xl">{{ $t("app.name") }}</span>
 			</nuxt-link>
-			<nuxt-link
+			<div
 				v-if="options.active"
-				to="/"
+				@click="logout"
 				class="inline-flex items-center bg-gray-200 border-0 py-1 px-3 focus:outline-none hover:bg-gray-300 rounded text-base"
 			>
 				<svg
@@ -45,17 +45,30 @@
 					></path>
 				</svg>
 				{{ $t("actions.logout") }}
-			</nuxt-link>
+			</div>
 		</div>
 	</header>
 </template>
 
 <script lang="ts">
 import { Component, Vue, Prop } from "nuxt-property-decorator"
+import { State, Getter, Action, Mutation, namespace } from "vuex-class"
 
 @Component({})
 export default class Header extends Vue {
+	@Action("user/logoutUser") logoutUserAction: any
+
 	@Prop({ required: true })
 	public options!: Object
+
+	logout() {
+		this.logoutUserAction()
+			.then(() => {
+				this.$router.push("/")
+			})
+			.catch((err: any) => {
+				console.log(err)
+			})
+	}
 }
 </script>

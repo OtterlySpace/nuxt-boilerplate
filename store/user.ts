@@ -84,6 +84,16 @@ export const actions = {
 			query: userQuery()
 		})
 		commit("setUser", data.me)
+	},
+	logoutUser({ commit }: any) {
+		// @ts-expect-error missing declaration
+		this.$axios
+			.$get(`${process.env.API_URL}/auth/logout`, {
+				withCredentials: true
+			})
+			.then((_resp: any) => {
+				commit("setUser", {})
+			})
 	}
 }
 
