@@ -2,7 +2,7 @@
 	<header class="text-gray-700 body-font">
 		<div class="flex justify-between items-center py-5">
 			<nuxt-link
-				v-if="!options.active"
+				v-if="!displayLogout"
 				to="/"
 				class="flex title-font font-medium items-center text-gray-900"
 			>
@@ -14,7 +14,7 @@
 				<span class="sm:ml-2 text-xl">{{ $t("app.name") }}</span>
 			</nuxt-link>
 			<nuxt-link
-				v-if="options.active"
+				v-if="displayLogout"
 				to="/todos"
 				class="flex title-font font-medium items-center text-gray-900"
 			>
@@ -26,9 +26,9 @@
 				<span class="sm:ml-2 text-xl">{{ $t("app.name") }}</span>
 			</nuxt-link>
 			<div
-				v-if="options.active"
+				v-if="displayLogout"
 				@click="logout"
-				class="inline-flex items-center bg-gray-200 border-0 py-1 px-3 focus:outline-none hover:bg-gray-300 rounded text-base"
+				class="cursor-pointer inline-flex items-center bg-gray-200 border-0 py-1 px-3 focus:outline-none hover:bg-gray-300 rounded text-base"
 			>
 				<svg
 					class="w-5 h-5 mr-1"
@@ -59,7 +59,7 @@ export default class Header extends Vue {
 	@Action("user/logoutUser") logoutUserAction: any
 
 	@Prop({ required: true })
-	public options!: Object
+	public displayLogout!: any
 
 	logout() {
 		this.logoutUserAction()

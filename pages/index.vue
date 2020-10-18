@@ -5,6 +5,7 @@
 			<div class="grid grid-cols-1 gap-4">
 				<H1 :content="$t('onboard.welcome')" />
 				<Introduction :content="$t('onboard.intro')" />
+
 				<Input
 					:placeholder="$t('user.username')"
 					type="text"
@@ -17,6 +18,7 @@
 					@keyup.enter.native="login"
 				/>
 				<ButtonLarge :content="$t('actions.login')" @click="login" />
+
 				<ButtonLarge
 					alt
 					:content="$t('actions.register')"

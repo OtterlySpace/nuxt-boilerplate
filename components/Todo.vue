@@ -1,5 +1,5 @@
 <template>
-	<div class="bg-gray-200 rounded p-4 h-full items-center">
+	<div class="cursor-pointer bg-gray-200 rounded p-4 h-full items-center">
 		<div v-if="todo.done" class="flex">
 			<div class="">
 				<svg

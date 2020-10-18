@@ -17,5 +17,8 @@
   },
   "app": {
     "name": "Todo List"
+  },
+  "todo": {
+    "title": "Ajouter une tâche"
   }
 }

@@ -82,7 +82,8 @@ export const actions = {
 
 		commit("setTodos", data.todos)
 	},
-	async addTodo({ commit }: any, title: string) {
+	async addTodo({ commit }: any, payload: Todo) {
+		const { title } = payload
 		const { data } = await apolloClient.mutate({
 			mutation: todoMutationCreate(title)
 		})
