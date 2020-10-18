@@ -49,30 +49,22 @@ export default class TodosPage extends Vue {
 
 	computed() {
 		return {
-			todos: this.todos
+			todos: []
 		}
 	}
 
 	created() {
-		this.loadTodosAction()
-			.then(() => {
-				this.$router.push("/todos")
-			})
-			.catch((err) => {
-				console.log(err)
-			})
+		this.loadTodosAction().catch((err) => {
+			console.log(err)
+		})
 	}
 
 	addTodo() {
 		this.addTodoAction({
 			title: this.title
+		}).catch((err) => {
+			console.log(err)
 		})
-			.then(() => {
-				this.$router.push("/todos")
-			})
-			.catch((err) => {
-				console.log(err)
-			})
 	}
 }
 </script>
