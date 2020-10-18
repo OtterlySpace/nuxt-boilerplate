@@ -17,7 +17,7 @@
 					@input="(val) => (password = val)"
 					@keyup.enter.native="login"
 				/>
-				<ButtonLarge :content="$t('actions.login')" @click="login" />
+				<t-button @click="login">{{ $t("actions.login") }}</t-button>
 
 				<ButtonLarge
 					alt
@@ -32,8 +32,11 @@
 <script lang="ts">
 import { Component, Vue } from "nuxt-property-decorator"
 import { Getter, Action } from "vuex-class"
+import { TButton } from "vue-tailwind"
 
-@Component({})
+@Component({
+	components: { TButton }
+})
 export default class HomePage extends Vue {
 	@Action("user/loginUser") loginUserAction: any
 	@Action("user/loadUser") loadUserAction: any
