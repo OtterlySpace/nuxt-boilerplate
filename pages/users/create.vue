@@ -1,7 +1,7 @@
 <template>
 	<div class="container mx-auto px-2">
 		<div>
-			<Header :displayLogout="false" />
+			<Header />
 			<div class="grid grid-cols-1 gap-4">
 				<Introduction :content="$t('onboard.register-form')" />
 
@@ -42,7 +42,7 @@
 
 <script lang="ts">
 import { Component, Vue } from "nuxt-property-decorator"
-import { State, Getter, Action, Mutation, namespace } from "vuex-class"
+import { Getter, Action } from "vuex-class"
 
 @Component({})
 export default class UsersCreate extends Vue {
@@ -71,9 +71,9 @@ export default class UsersCreate extends Vue {
 			password: this.password
 		})
 			.then(() => {
-				this.$router.push("/todos")
+				this.$router.push("/")
 			})
-			.catch((err) => {
+			.catch((err: any) => {
 				console.log(err)
 			})
 	}

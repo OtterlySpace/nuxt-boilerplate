@@ -1,7 +1,7 @@
 <template>
 	<div class="container mx-auto px-2">
 		<div>
-			<Header :displayLogout="true" />
+			<Header display-logout />
 			<div class="grid grid-cols-1 gap-4">
 				<div class="flex bg-green-200 rounded p-4 h-full items-center">
 					<svg
@@ -22,6 +22,7 @@
 						<Input
 							:placeholder="$t('todo.title')"
 							type="text"
+							:default-value="title"
 							@input="(val) => (title = val)"
 							@keyup.enter.native="addTodo"
 						/>
@@ -35,7 +36,7 @@
 
 <script lang="ts">
 import { Component, Vue } from "nuxt-property-decorator"
-import { State, Getter, Action, Mutation, namespace } from "vuex-class"
+import { Getter, Action } from "vuex-class"
 
 @Component({})
 export default class TodosPage extends Vue {
@@ -54,17 +55,22 @@ export default class TodosPage extends Vue {
 	}
 
 	created() {
-		this.loadTodosAction().catch((err) => {
+		this.loadTodosAction().catch((err: any) => {
 			console.log(err)
+			this.$router.push("/")
 		})
 	}
 
 	addTodo() {
 		this.addTodoAction({
 			title: this.title
-		}).catch((err) => {
-			console.log(err)
 		})
+			.then(() => {
+				this.title = ""
+			})
+			.catch((err: any) => {
+				console.log(err)
+			})
 	}
 }
 </script>

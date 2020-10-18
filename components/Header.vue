@@ -27,8 +27,8 @@
 			</nuxt-link>
 			<div
 				v-if="displayLogout"
-				@click="logout"
 				class="cursor-pointer inline-flex items-center bg-gray-200 border-0 py-1 px-3 focus:outline-none hover:bg-gray-300 rounded text-base"
+				@click="logout"
 			>
 				<svg
 					class="w-5 h-5 mr-1"
@@ -52,14 +52,14 @@
 
 <script lang="ts">
 import { Component, Vue, Prop } from "nuxt-property-decorator"
-import { State, Getter, Action, Mutation, namespace } from "vuex-class"
+import { Action } from "vuex-class"
 
 @Component({})
 export default class Header extends Vue {
 	@Action("user/logoutUser") logoutUserAction: any
 
-	@Prop({ required: true })
-	public displayLogout!: any
+	@Prop({ default: false })
+	public displayLogout!: boolean
 
 	logout() {
 		this.logoutUserAction()

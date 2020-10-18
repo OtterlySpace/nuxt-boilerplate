@@ -31,7 +31,7 @@
 
 <script lang="ts">
 import { Component, Vue } from "nuxt-property-decorator"
-import { State, Getter, Action, Mutation, namespace } from "vuex-class"
+import { Getter, Action } from "vuex-class"
 
 @Component({})
 export default class HomePage extends Vue {
@@ -60,7 +60,7 @@ export default class HomePage extends Vue {
 			.then(() => {
 				this.$router.push("/todos")
 			})
-			.catch((err) => {
+			.catch((err: any) => {
 				console.log(err)
 			})
 	}
@@ -77,7 +77,7 @@ export default class HomePage extends Vue {
 			.then(() => {
 				this.$router.push("/todos")
 			})
-			.catch((err) => {
+			.catch((err: any) => {
 				console.log(err)
 			})
 	}

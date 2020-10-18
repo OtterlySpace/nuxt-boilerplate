@@ -65,12 +65,11 @@ function userQuery() {
 }
 
 export const actions = {
-	async createUser({ commit }: any, payload: User) {
+	async createUser({ _commit }: any, payload: User) {
 		const { email, username, password } = payload
-		const { data } = await apolloClient.mutate({
+		await apolloClient.mutate({
 			mutation: userMutationCreate(email, username, password)
 		})
-		commit("setUser", data.createUser)
 	},
 	async loginUser({ commit }: any, payload: User) {
 		const { username, password } = payload
@@ -81,18 +80,20 @@ export const actions = {
 	},
 	async loadUser({ commit }: any) {
 		const { data } = await apolloClient.query({
-			query: userQuery()
+			query: userQuery(),
+			fetchPolicy: "no-cache"
 		})
 		commit("setUser", data.me)
 	},
-	logoutUser({ commit }: any) {
+	logoutUser({ commit }: any): Promise<any> {
 		// @ts-expect-error missing declaration
-		this.$axios
+		return this.$axios
 			.$get(`${process.env.API_URL}/auth/logout`, {
 				withCredentials: true
 			})
 			.then((_resp: any) => {
-				commit("setUser", {})
+				commit("todo/setTodos", [], { root: true })
+				commit("removeUser")
 			})
 	}
 }

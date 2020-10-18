@@ -77,7 +77,8 @@ function todoMutationRemove(id: string) {
 export const actions = {
 	async loadTodos({ commit }: any) {
 		const { data } = await apolloClient.query({
-			query: todosQuery()
+			query: todosQuery(),
+			fetchPolicy: "no-cache"
 		})
 
 		commit("setTodos", data.todos)
