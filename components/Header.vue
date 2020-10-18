@@ -58,7 +58,7 @@ import { Action } from "vuex-class"
 export default class Header extends Vue {
 	@Action("user/logoutUser") logoutUserAction: any
 
-	@Prop({ default: false })
+	@Prop({ default: false, type: Boolean })
 	public displayLogout!: boolean
 
 	logout() {
