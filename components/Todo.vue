@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<div v-if="item.done">
+		<div v-if="todo.done">
 			<div
 				class="cursor-pointer bg-gray-100 rounded p-4 h-full items-center"
 			>
@@ -22,7 +22,7 @@
 						</svg>
 					</div>
 					<div class="flex-grow font-medium line-through">
-						{{ item.title }}
+						{{ todo.title }}
 					</div>
 					<div class="" @click="removeTodo">
 						<svg
@@ -64,7 +64,7 @@
 							></path>
 						</svg>
 					</div>
-					<div class="flex-grow font-medium">{{ item.title }}</div>
+					<div class="flex-grow font-medium">{{ todo.title }}</div>
 					<div class="" @click="removeTodo">
 						<svg
 							class="w-6 h-6"
@@ -89,7 +89,7 @@
 
 <script lang="ts">
 import { Component, Vue, Prop } from "nuxt-property-decorator"
-import { Getter, Action } from "vuex-class"
+import { Action } from "vuex-class"
 
 @Component({})
 export default class Todo extends Vue {
@@ -99,20 +99,12 @@ export default class Todo extends Vue {
 	@Prop()
 	public todo!: any
 
-	data() {
-		return {
-			item: this.todo
-		}
-	}
-
 	checkTodo() {
 		this.updateTodoAction({
 			id: this.todo.id,
 			title: this.todo.title,
 			done: true
-		}).then(() => {
-			this.$router.push("/todos")
-		})
+		}).then(() => {})
 	}
 
 	uncheckTodo() {
@@ -120,17 +112,13 @@ export default class Todo extends Vue {
 			id: this.todo.id,
 			title: this.todo.title,
 			done: false
-		}).then(() => {
-			this.$router.push("/todos")
-		})
+		}).then(() => {})
 	}
 
 	removeTodo() {
 		this.removeTodoAction({
 			id: this.todo.id
-		}).then(() => {
-			this.$router.push("/todos")
-		})
+		}).then(() => {})
 	}
 }
 </script>

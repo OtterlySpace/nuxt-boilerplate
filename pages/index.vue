@@ -66,9 +66,13 @@ export default class HomePage extends Vue {
 	}
 
 	created() {
-		this.loadUserAction().then(() => {
-			this.$router.push("/todos")
-		})
+		this.loadUserAction()
+			.then(() => {
+				this.$router.push("/todos")
+			})
+			.catch((_err: any) => {
+				// Empty catch because we expect an error (if user isn't logged in)
+			})
 	}
 
 	register() {
@@ -83,7 +87,7 @@ export default class HomePage extends Vue {
 			.then(() => {
 				this.$router.push("/todos")
 			})
-			.catch((err: any) => {
+			.catch((_err: any) => {
 				this.submitReturnError = true
 			})
 	}
