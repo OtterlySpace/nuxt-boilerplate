@@ -25,12 +25,7 @@
 					@click="register"
 				/>
 
-				<t-alert
-					:classes="settings.TAlert.classes"
-					variant="danger"
-					:variants="settings.TAlert.variants"
-					show
-				>
+				<t-alert variant="danger" show>
 					Oops! Something goes wrong
 				</t-alert>
 
@@ -45,12 +40,8 @@
 <script lang="ts">
 import { Component, Vue } from "nuxt-property-decorator"
 import { Getter, Action } from "vuex-class"
-import { TButton, TInput, TAlert } from "vue-tailwind"
-import settings from "~/plugins/todoListTheme"
 
-@Component({
-	components: { TButton, TInput, TAlert }
-})
+@Component({})
 export default class HomePage extends Vue {
 	@Action("user/loginUser") loginUserAction: any
 	@Action("user/loadUser") loadUserAction: any
@@ -65,8 +56,6 @@ export default class HomePage extends Vue {
 	username = ""
 
 	password = ""
-
-	settings = settings
 
 	computed() {
 		return {
