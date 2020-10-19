@@ -7,7 +7,7 @@
   },
   "onboard": {
     "intro": "Log in to view your to-do list",
-    "welcome": "Welcome👋",
+    "welcome": "👋 Welcome",
     "register-form": "This is a registration form"
   },
   "actions": {
@@ -28,5 +28,8 @@
       "error": "Your credentials don't seem to work",
       "success": "Its good! \nYou are logged into your account."
     }
+  },
+  "todo": {
+    "title": "Add a task"
   }
 }
