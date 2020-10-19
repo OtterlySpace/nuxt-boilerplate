@@ -3,7 +3,7 @@
 		<div>
 			<Header display-logout />
 			<div class="grid grid-cols-1 gap-4">
-				<div class="flex bg-green-200 rounded p-4 h-full items-center">
+				<div class="flex rounded p-4 h-full items-center">
 					<svg
 						class="w-6 h-6 mr-3"
 						fill="none"
