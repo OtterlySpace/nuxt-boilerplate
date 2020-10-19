@@ -6,24 +6,24 @@
 				<H1 :content="$t('onboard.welcome')" />
 				<Introduction :content="$t('onboard.intro')" />
 
-				<Input
+				<t-input
+					v-model="username"
 					:placeholder="$t('user.username')"
 					type="text"
-					@input="(val) => (username = val)"
 				/>
-				<Input
+
+				<t-input
+					v-model="password"
 					:placeholder="$t('user.password')"
 					type="password"
-					@input="(val) => (password = val)"
 					@keyup.enter.native="login"
 				/>
+
 				<t-button @click="login">{{ $t("actions.login") }}</t-button>
 
-				<ButtonLarge
-					alt
-					:content="$t('actions.register')"
-					@click="register"
-				/>
+				<t-button variant="link" @click="register">{{
+					$t("actions.register")
+				}}</t-button>
 
 				<t-alert variant="danger" show>
 					Oops! Something goes wrong

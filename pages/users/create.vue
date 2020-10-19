@@ -5,36 +5,29 @@
 			<div class="grid grid-cols-1 gap-4">
 				<Introduction :content="$t('onboard.register-form')" />
 
-				<Input
+				<t-input
+					v-model="username"
 					:placeholder="$t('user.username')"
 					type="text"
-					@input="(val) => (username = val)"
 				/>
-				<Input
+				<t-input
+					v-model="email"
 					:placeholder="$t('user.email')"
-					type="email"
-					@input="(val) => (email = val)"
-				/>
-				<Input
-					:placeholder="$t('user.password')"
-					type="password"
-					@input="(val) => (password = val)"
-				/>
-				<Input
-					:placeholder="$t('user.password-repeat')"
-					type="password"
-					@input="(val) => (passwordReapet = val)"
-				/>
-				<ButtonLarge
-					:content="$t('actions.register')"
-					@click="register"
+					type="text"
 				/>
 
-				<ButtonLarge
-					alt
-					:content="$t('actions.login')"
-					@click="login"
+				<t-input
+					v-model="password"
+					:placeholder="$t('user.password')"
+					type="password"
+					@keyup.enter.native="login"
 				/>
+				<t-button @click="register">{{
+					$t("actions.register")
+				}}</t-button>
+				<t-button variant="link" @click="login">{{
+					$t("actions.login")
+				}}</t-button>
 			</div>
 		</div>
 	</div>
@@ -56,7 +49,6 @@ export default class UsersCreate extends Vue {
 	username = ""
 	email = ""
 	password = ""
-	passwordReapet = ""
 
 	computed() {
 		return {

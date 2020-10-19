@@ -26,13 +26,28 @@ const TAlert = {
 }
 
 const TButton = {
+	fixedClasses:
+		"focus:outline-none focus:shadow-outline transition ease-in-out duration-150",
 	classes:
-		"text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg text-center cursor-pointer select-none"
+		"text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg text-center",
+	variants: {
+		error:
+			"text-white bg-red-600 hover:bg-red-500 focus:border-red-700  active:bg-red-700 text-lg border border-transparent px-8 py-2 rounded",
+		success:
+			"text-white bg-green-600 hover:bg-green-500 focus:border-green-700 active:bg-green-700 text-lg border border-transparent px-8 py-2 rounded",
+		link:
+			"text-indigo-500 px-8 py-2 hover:bg-indigo-100 rounded text-lg text-center"
+	}
+}
+
+const TInput = {
+	classes: "flex-grow w-full bg-gray-100 rounded border border-gray-400 focus:outline-none focus:border-indigo-500 text-base px-4 py-2 mr-4"
 }
 
 const settings = {
 	TAlert,
-	TButton
+	TButton,
+	TInput
 }
 
 export default settings

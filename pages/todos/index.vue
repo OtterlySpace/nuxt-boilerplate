@@ -19,11 +19,10 @@
 						></path>
 					</svg>
 					<div class="flex-grow font-medium">
-						<Input
+						<t-input
+							v-model="title"
 							:placeholder="$t('todo.title')"
 							type="text"
-							:default-value="title"
-							@input="(val) => (title = val)"
 							@keyup.enter.native="addTodo"
 						/>
 					</div>
