@@ -66,13 +66,9 @@ export default class HomePage extends Vue {
 	}
 
 	created() {
-		this.loadUserAction()
-			.then(() => {
-				this.$router.push("/todos")
-			})
-			.catch((err: any) => {
-				console.log(err)
-			})
+		this.loadUserAction().then(() => {
+			this.$router.push("/todos")
+		})
 	}
 
 	register() {

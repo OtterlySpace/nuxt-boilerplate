@@ -56,6 +56,7 @@ import { Getter, Action } from "vuex-class"
 
 @Component({})
 export default class UsersCreate extends Vue {
+	@Action("user/loginUser") loginUserAction: any
 	@Action("user/createUser") createUserAction: any
 	@Action("user/loadUser") loadUserAction: any
 	@Getter("user/getUser") user: any
@@ -83,10 +84,18 @@ export default class UsersCreate extends Vue {
 			password: this.password
 		})
 			.then(() => {
-				this.submitReturnSuccess = true
-				this.$router.push("/")
+				this.loginUserAction({
+					username: this.username,
+					password: this.password
+				})
+					.then(() => {
+						this.$router.push("/todos")
+					})
+					.catch(() => {
+						this.submitReturnError = true
+					})
 			})
-			.catch((err: any) => {
+			.catch(() => {
 				this.submitReturnError = true
 			})
 	}
