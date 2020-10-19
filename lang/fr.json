@@ -13,12 +13,23 @@
   "actions": {
     "login": "Se connecter",
     "register": "S'inscrire",
-    "logout": "Se déconnecter"
+    "logout": "Se déconnecter",
+    "error": "Vos identifiants ne semblent pas fonctionner"
   },
   "app": {
     "name": "Todo List"
   },
   "todo": {
     "title": "Ajouter une tâche"
+  },
+  "alert": {
+    "createUser": {
+      "error": "Il semble y avoir un problème.",
+      "success": "C'est bon! Votre compte est créé. Vous pouvez vous connecter."
+    },
+    "loginUser": {
+      "error": "Vos identifiants ne semblent pas fonctionner",
+      "success": "C'est bon! Vous êtes connecté à votre compte."
+    }
   }
 }

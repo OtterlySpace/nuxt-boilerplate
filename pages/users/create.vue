@@ -25,6 +25,23 @@
 				<t-button @click="register">{{
 					$t("actions.register")
 				}}</t-button>
+
+				<t-alert
+					variant="danger"
+					:show="submitReturnError"
+					:dismissible="false"
+				>
+					{{ $t("alert.createUser.error") }}
+				</t-alert>
+
+				<t-alert
+					variant="success"
+					:show="submitReturnSuccess"
+					:dismissible="false"
+				>
+					{{ $t("alert.createUser.success") }}
+				</t-alert>
+
 				<t-button variant="link" @click="login">{{
 					$t("actions.login")
 				}}</t-button>
@@ -50,6 +67,9 @@ export default class UsersCreate extends Vue {
 	email = ""
 	password = ""
 
+	submitReturnSuccess = false
+	submitReturnError = false
+
 	computed() {
 		return {
 			user: this.user
@@ -63,10 +83,11 @@ export default class UsersCreate extends Vue {
 			password: this.password
 		})
 			.then(() => {
+				this.submitReturnSuccess = true
 				this.$router.push("/")
 			})
 			.catch((err: any) => {
-				console.log(err)
+				this.submitReturnError = true
 			})
 	}
 

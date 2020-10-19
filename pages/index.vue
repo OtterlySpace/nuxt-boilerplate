@@ -21,17 +21,17 @@
 
 				<t-button @click="login">{{ $t("actions.login") }}</t-button>
 
+				<t-alert
+					variant="danger"
+					:dismissible="false"
+					:show="submitReturnError"
+				>
+					{{ $t("alert.loginUser.error") }}
+				</t-alert>
+
 				<t-button variant="link" @click="register">{{
 					$t("actions.register")
 				}}</t-button>
-
-				<t-alert variant="danger" show>
-					Oops! Something goes wrong
-				</t-alert>
-
-				<t-alert variant="success" show>
-					Good work, everything is working as expected!
-				</t-alert>
 			</div>
 		</div>
 	</div>
@@ -56,6 +56,8 @@ export default class HomePage extends Vue {
 	username = ""
 
 	password = ""
+
+	submitReturnError = false
 
 	computed() {
 		return {
@@ -86,7 +88,7 @@ export default class HomePage extends Vue {
 				this.$router.push("/todos")
 			})
 			.catch((err: any) => {
-				console.log(err)
+				this.submitReturnError = true
 			})
 	}
 }

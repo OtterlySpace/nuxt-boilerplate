@@ -13,9 +13,20 @@
   "actions": {
     "login": "Log in",
     "register": "Register",
-    "logout": "Log out"
+    "logout": "Log out",
+    "error": "Your credentials don't seem to work"
   },
   "app": {
     "name": "Todo List"
+  },
+  "alert": {
+    "createUser": {
+      "error": "There seems to be a problem.",
+      "success": "Its good ! \nYour account is created. \nYou can log in."
+    },
+    "loginUser": {
+      "error": "Your credentials don't seem to work",
+      "success": "Its good! \nYou are logged into your account."
+    }
   }
 }
