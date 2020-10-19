@@ -1,10 +1,5 @@
 import Vue from "vue"
 import VueTailwind from "vue-tailwind"
-
-const settings = {
-	TInput: {
-		classes: "border-2 block w-full rounded text-gray-800"
-	}
-}
+import settings from "./todoListTheme"
 
 Vue.use(VueTailwind, settings)
