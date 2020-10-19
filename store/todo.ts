@@ -1,6 +1,7 @@
 import gql from "graphql-tag"
 import { apolloClient } from "@/plugins/vue-apollo"
 import { Todo } from "./types"
+import { errorHandler } from "~/utils/gqlErrorHandler"
 
 interface TodoState {
 	todos: Todo[]
@@ -76,12 +77,16 @@ function todoMutationRemove(id: string) {
 
 export const actions = {
 	async loadTodos({ commit }: any) {
-		const { data } = await apolloClient.query({
-			query: todosQuery(),
-			fetchPolicy: "no-cache"
-		})
+		try {
+			const { data } = await apolloClient.query({
+				query: todosQuery(),
+				fetchPolicy: "no-cache"
+			})
 
-		commit("setTodos", data.todos)
+			commit("setTodos", data.todos)
+		} catch (err) {
+			errorHandler(err)
+		}
 	},
 	async addTodo({ commit }: any, payload: Todo) {
 		const { title } = payload

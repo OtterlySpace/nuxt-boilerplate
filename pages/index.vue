@@ -87,7 +87,14 @@ export default class HomePage extends Vue {
 			.then(() => {
 				this.$router.push("/todos")
 			})
-			.catch((_err: any) => {
+			.catch(({ graphQLErrors }: any) => {
+				const message =
+					graphQLErrors[0].extensions.exception.response.message
+
+				if (message.length && message.length > 0) {
+					const errors = message.map((mess) => this.$t(mess))
+					console.error(errors)
+				}
 				this.submitReturnError = true
 			})
 	}

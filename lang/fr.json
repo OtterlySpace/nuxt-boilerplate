@@ -31,5 +31,10 @@
       "error": "Vos identifiants ne semblent pas fonctionner",
       "success": "C'est bon! Vous êtes connecté à votre compte."
     }
+  },
+  "error": {
+    "password": {
+      "tooShort": "Mot de passe trop court"
+    }
   }
 }
