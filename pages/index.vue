@@ -92,7 +92,7 @@ export default class HomePage extends Vue {
 					graphQLErrors[0].extensions.exception.response.message
 
 				if (message.length && message.length > 0) {
-					const errors = message.map((mess) => this.$t(mess))
+					const errors = message.map((mess: string) => this.$t(mess))
 					console.error(errors)
 				}
 				this.submitReturnError = true
