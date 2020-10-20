@@ -7,6 +7,10 @@ export default {
 	// Target (https://go.nuxtjs.dev/config-target)
 	target: "static",
 
+	env: {
+		apiUrl: process.env.API_URL || "https://api.localhost.otterly.eu"
+	},
+
 	// Global page headers (https://go.nuxtjs.dev/config-head)
 	head: {
 		titleTemplate: "%s - nuxt-boilerplate",
@@ -87,13 +91,13 @@ export default {
 		mode: "postcss",
 		extractors: [
 			{
-				extractor(content) {
+				extractor (content) {
 					return content.match(/[\w-.:/]+(?<!:)/g)
 				},
 				extensions: ["html", "vue", "js", "ts"]
 			},
 			{
-				extractor(content) {
+				extractor (content) {
 					return content.match(/[A-Za-z0-9-_:/]+/g)
 				},
 				extensions: ["js", "ts"]
