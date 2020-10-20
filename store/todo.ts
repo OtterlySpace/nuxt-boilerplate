@@ -1,6 +1,7 @@
 import gql from "graphql-tag"
 import { apolloClient } from "@/plugins/vue-apollo"
 import { Todo } from "./types"
+import { errorHandler } from "~/utils/gqlErrorHandler"
 
 interface TodoState {
 	todos: Todo[]
@@ -76,12 +77,16 @@ function todoMutationRemove(id: string) {
 
 export const actions = {
 	async loadTodos({ commit }: any) {
-		const { data } = await apolloClient.query({
-			query: todosQuery(),
-			fetchPolicy: "no-cache"
-		})
+		try {
+			const { data } = await apolloClient.query({
+				query: todosQuery(),
+				fetchPolicy: "no-cache"
+			})
 
-		commit("setTodos", data.todos)
+			commit("setTodos", data.todos)
+		} catch (err) {
+			errorHandler(err)
+		}
 	},
 	async addTodo({ commit }: any, payload: Todo) {
 		const { title } = payload
@@ -111,15 +116,20 @@ export const mutations = {
 		state.todos = [...payload]
 	},
 	updateTodo(state: TodoState, payload: Todo) {
-		const todoIndex = state.todos.indexOf(payload)
-		state.todos[todoIndex] = payload
+		const todoIndex = state.todos.findIndex(
+			(todo) => todo.id === payload.id
+		)
+		state.todos.splice(todoIndex, 1, payload)
+		console.log(payload, todoIndex, state.todos[todoIndex])
 	},
 	updateTodos(state: TodoState, payload: Todo) {
 		state.todos = [...state.todos, payload]
 	},
 	removeTodo(state: TodoState, payload: Todo) {
-		const todoIndex = state.todos.indexOf(payload)
-		state.todos = state.todos.splice(todoIndex, 0)
+		const todoIndex = state.todos.findIndex(
+			(todo) => todo.id === payload.id
+		)
+		state.todos.splice(todoIndex, 1)
 	}
 }
 

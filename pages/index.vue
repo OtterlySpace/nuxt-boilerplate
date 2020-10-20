@@ -6,24 +6,32 @@
 				<H1 :content="$t('onboard.welcome')" />
 				<Introduction :content="$t('onboard.intro')" />
 
-				<Input
+				<t-input
+					v-model="username"
 					:placeholder="$t('user.username')"
 					type="text"
-					@input="(val) => (username = val)"
 				/>
-				<Input
+
+				<t-input
+					v-model="password"
 					:placeholder="$t('user.password')"
 					type="password"
-					@input="(val) => (password = val)"
 					@keyup.enter.native="login"
 				/>
+
 				<t-button @click="login">{{ $t("actions.login") }}</t-button>
 
-				<ButtonLarge
-					alt
-					:content="$t('actions.register')"
-					@click="register"
-				/>
+				<t-alert
+					variant="danger"
+					:dismissible="false"
+					:show="submitReturnError"
+				>
+					{{ $t("alert.loginUser.error") }}
+				</t-alert>
+
+				<t-button variant="link" @click="register">{{
+					$t("actions.register")
+				}}</t-button>
 			</div>
 		</div>
 	</div>
@@ -32,11 +40,8 @@
 <script lang="ts">
 import { Component, Vue } from "nuxt-property-decorator"
 import { Getter, Action } from "vuex-class"
-import { TButton } from "vue-tailwind"
 
-@Component({
-	components: { TButton }
-})
+@Component({})
 export default class HomePage extends Vue {
 	@Action("user/loginUser") loginUserAction: any
 	@Action("user/loadUser") loadUserAction: any
@@ -52,6 +57,8 @@ export default class HomePage extends Vue {
 
 	password = ""
 
+	submitReturnError = false
+
 	computed() {
 		return {
 			user: this.user
@@ -63,8 +70,8 @@ export default class HomePage extends Vue {
 			.then(() => {
 				this.$router.push("/todos")
 			})
-			.catch((err: any) => {
-				console.log(err)
+			.catch((_err: any) => {
+				// Empty catch because we expect an error (if user isn't logged in)
 			})
 	}
 
@@ -80,8 +87,15 @@ export default class HomePage extends Vue {
 			.then(() => {
 				this.$router.push("/todos")
 			})
-			.catch((err: any) => {
-				console.log(err)
+			.catch(({ graphQLErrors }: any) => {
+				const message =
+					graphQLErrors[0].extensions.exception.response.message
+
+				if (message.length && message.length > 0) {
+					const errors = message.map((mess) => this.$t(mess))
+					console.error(errors)
+				}
+				this.submitReturnError = true
 			})
 	}
 }

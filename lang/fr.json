@@ -7,18 +7,34 @@
   },
   "onboard": {
     "intro": "Connectez vous pour consulter votre liste de chose à faire",
-    "welcome": "Bienvenue👋",
+    "welcome": "👋 Bienvenue",
     "register-form": "Ceci est un formulaire d'inscription"
   },
   "actions": {
     "login": "Se connecter",
     "register": "S'inscrire",
-    "logout": "Se déconnecter"
+    "logout": "Se déconnecter",
+    "error": "Vos identifiants ne semblent pas fonctionner"
   },
   "app": {
     "name": "Todo List"
   },
   "todo": {
     "title": "Ajouter une tâche"
+  },
+  "alert": {
+    "createUser": {
+      "error": "Il semble y avoir un problème.",
+      "success": "C'est bon! Votre compte est créé. Vous pouvez vous connecter."
+    },
+    "loginUser": {
+      "error": "Vos identifiants ne semblent pas fonctionner",
+      "success": "C'est bon! Vous êtes connecté à votre compte."
+    }
+  },
+  "error": {
+    "password": {
+      "tooShort": "Mot de passe trop court"
+    }
   }
 }

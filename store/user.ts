@@ -1,6 +1,7 @@
 import gql from "graphql-tag"
 import { apolloClient } from "@/plugins/vue-apollo"
 import { User } from "./types"
+import { errorHandler } from "~/utils/gqlErrorHandler"
 
 interface UserState {
 	user: User | null
@@ -79,11 +80,15 @@ export const actions = {
 		commit("setUser", data.loginUser)
 	},
 	async loadUser({ commit }: any) {
-		const { data } = await apolloClient.query({
-			query: userQuery(),
-			fetchPolicy: "no-cache"
-		})
-		commit("setUser", data.me)
+		try {
+			const { data } = await apolloClient.query({
+				query: userQuery(),
+				fetchPolicy: "no-cache"
+			})
+			commit("setUser", data.me)
+		} catch (err) {
+			errorHandler(err)
+		}
 	},
 	logoutUser({ commit }: any): Promise<any> {
 		// @ts-expect-error missing declaration

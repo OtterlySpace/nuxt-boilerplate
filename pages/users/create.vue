@@ -5,36 +5,46 @@
 			<div class="grid grid-cols-1 gap-4">
 				<Introduction :content="$t('onboard.register-form')" />
 
-				<Input
+				<t-input
+					v-model="username"
 					:placeholder="$t('user.username')"
 					type="text"
-					@input="(val) => (username = val)"
 				/>
-				<Input
+				<t-input
+					v-model="email"
 					:placeholder="$t('user.email')"
-					type="email"
-					@input="(val) => (email = val)"
-				/>
-				<Input
-					:placeholder="$t('user.password')"
-					type="password"
-					@input="(val) => (password = val)"
-				/>
-				<Input
-					:placeholder="$t('user.password-repeat')"
-					type="password"
-					@input="(val) => (passwordReapet = val)"
-				/>
-				<ButtonLarge
-					:content="$t('actions.register')"
-					@click="register"
+					type="text"
 				/>
 
-				<ButtonLarge
-					alt
-					:content="$t('actions.login')"
-					@click="login"
+				<t-input
+					v-model="password"
+					:placeholder="$t('user.password')"
+					type="password"
+					@keyup.enter.native="login"
 				/>
+				<t-button @click="register">{{
+					$t("actions.register")
+				}}</t-button>
+
+				<t-alert
+					variant="danger"
+					:show="submitReturnError"
+					:dismissible="false"
+				>
+					{{ $t("alert.createUser.error") }}
+				</t-alert>
+
+				<t-alert
+					variant="success"
+					:show="submitReturnSuccess"
+					:dismissible="false"
+				>
+					{{ $t("alert.createUser.success") }}
+				</t-alert>
+
+				<t-button variant="link" @click="login">{{
+					$t("actions.login")
+				}}</t-button>
 			</div>
 		</div>
 	</div>
@@ -46,6 +56,7 @@ import { Getter, Action } from "vuex-class"
 
 @Component({})
 export default class UsersCreate extends Vue {
+	@Action("user/loginUser") loginUserAction: any
 	@Action("user/createUser") createUserAction: any
 	@Action("user/loadUser") loadUserAction: any
 	@Getter("user/getUser") user: any
@@ -56,7 +67,9 @@ export default class UsersCreate extends Vue {
 	username = ""
 	email = ""
 	password = ""
-	passwordReapet = ""
+
+	submitReturnSuccess = false
+	submitReturnError = false
 
 	computed() {
 		return {
@@ -71,10 +84,19 @@ export default class UsersCreate extends Vue {
 			password: this.password
 		})
 			.then(() => {
-				this.$router.push("/")
+				this.loginUserAction({
+					username: this.username,
+					password: this.password
+				})
+					.then(() => {
+						this.$router.push("/todos")
+					})
+					.catch(() => {
+						this.submitReturnError = true
+					})
 			})
-			.catch((err: any) => {
-				console.log(err)
+			.catch(() => {
+				this.submitReturnError = true
 			})
 	}
 
