@@ -8,7 +8,8 @@ export default {
 	target: "static",
 
 	env: {
-		apiUrl: process.env.API_URL || "https://api.localhost.otterly.eu"
+		apiUrl:
+			process.env.NUXT_ENV_API_URL || "https://api.localhost.otterly.eu"
 	},
 
 	// Global page headers (https://go.nuxtjs.dev/config-head)
@@ -36,7 +37,10 @@ export default {
 	css: [],
 
 	// Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
-	plugins: [{ src: "~/plugins/vue-tailwind" }],
+	plugins: [
+		{ src: "~/plugins/vue-tailwind" },
+		{ src: "~/plugins/vue-apollo" }
+	],
 
 	// Auto import components (https://go.nuxtjs.dev/config-components)
 	components: true,
