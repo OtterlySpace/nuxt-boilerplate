@@ -93,7 +93,7 @@ export const actions = {
 	logoutUser({ commit }: any): Promise<any> {
 		// @ts-expect-error missing declaration
 		return this.$axios
-			.$get(`${process.env.API_URL}/auth/logout`, {
+			.$get(`${process.env.NUXT_ENV_API_URL}/auth/logout`, {
 				withCredentials: true
 			})
 			.then((_resp: any) => {
