@@ -59,15 +59,15 @@ export default {
 		// https://github.com/nuxt-community/tailwindcss-module
 		"@nuxtjs/tailwindcss",
 		// https://github.com/nuxt-community/dotenv-module
-		"@nuxtjs/dotenv"
+		"@nuxtjs/dotenv",
+		// https://go.nuxtjs.dev/pwa
+		"@nuxtjs/pwa"
 	],
 
 	// Modules (https://go.nuxtjs.dev/config-modules)
 	modules: [
 		// https://go.nuxtjs.dev/axios
 		"@nuxtjs/axios",
-		// https://go.nuxtjs.dev/pwa
-		"@nuxtjs/pwa",
 		// https://go.nuxtjs.dev/content
 		"@nuxt/content",
 		// https://i18n.nuxtjs.org/
@@ -112,5 +112,14 @@ export default {
 				extensions: ["js", "ts"]
 			}
 		]
+	},
+	pwa: {
+		manifest: {
+			name: "Todo List",
+			description: "Boilerplate is a Boilerplate",
+			lang: "fr",
+			useWebmanifestExtension: false,
+			source: "/icon.png"
+		}
 	}
 }
