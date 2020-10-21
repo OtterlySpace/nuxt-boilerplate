@@ -22,9 +22,7 @@
 							></path>
 						</svg>
 					</div>
-					<div
-						class="flex-grow font-medium line-through"
-					>
+					<div class="flex-grow font-medium line-through">
 						{{ todo.title }}
 					</div>
 					<div class="" @click="removeTodo">
