@@ -21,20 +21,6 @@ export default {
 		},
 		titleTemplate: "%s - nuxt-boilerplate",
 		title: "Todo List",
-		meta: [
-			{ charset: "utf-8" },
-			{
-				name: "viewport",
-				content: "width=device-width, initial-scale=1"
-			},
-			{ hid: "description", name: "description", content: "" },
-			...createSEOMeta({
-				title: "Todo List - nuxt-boilerplate",
-				description: "Boilerplate is a Boilerplate",
-				image: process.env.NUXT_ENV_HOST_NAME + "/card_img.png",
-				url: process.env.NUXT_ENV_HOST_NAME
-			})
-		],
 		link: [{ rel: "icon", type: "image/png", href: "/favicon.png" }]
 	},
 
@@ -100,13 +86,13 @@ export default {
 		mode: "postcss",
 		extractors: [
 			{
-				extractor(content) {
+				extractor (content) {
 					return content.match(/[\w-.:/]+(?<!:)/g)
 				},
 				extensions: ["html", "vue", "js", "ts"]
 			},
 			{
-				extractor(content) {
+				extractor (content) {
 					return content.match(/[A-Za-z0-9-_:/]+/g)
 				},
 				extensions: ["js", "ts"]
@@ -114,12 +100,25 @@ export default {
 		]
 	},
 	pwa: {
-		manifest: {
-			name: "Todo List",
+		meta: {
+			mobileAppIOS: true,
+			name: "Todo List - nuxt-boilerplate",
+			author: "Otterly.Space",
 			description: "Boilerplate is a Boilerplate",
+			theme_color: "#5a67d8",
 			lang: "fr",
-			useWebmanifestExtension: false,
-			source: "/icon.png"
+			ogHost: process.env.NUXT_ENV_HOST_NAME,
+			ogImage: "/card_img.png",
+			twitterCard: "summary_large_image",
+			twitterSite: "OtterlySpace"
+		},
+		manifest: {
+			name: "Otterly Todo List",
+			short_name: "Todo List",
+			background_color: "#5a67d8"
+		},
+		icon: {
+			source: "~/static/icon.png"
 		}
 	}
 }
