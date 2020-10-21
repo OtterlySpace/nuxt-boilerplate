@@ -2,7 +2,7 @@
 	<div class="container mx-auto px-2">
 		<div>
 			<Header />
-			<transition name="fade">
+			<transition name="fade" appear>
 				<div class="grid grid-cols-1 gap-4">
 					<Introduction :content="$t('onboard.register-form')" />
 

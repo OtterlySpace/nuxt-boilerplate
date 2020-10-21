@@ -2,7 +2,7 @@
 	<div class="container mx-auto px-2">
 		<div>
 			<Header display-logout />
-			<transition name="fade">
+			<transition name="fade" appear>
 				<div
 					class="flex rounded lg:px-0 px-4 mt-2 mb-8 h-full items-center"
 				>

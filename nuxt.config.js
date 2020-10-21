@@ -31,11 +31,11 @@ export default {
 			...createSEOMeta({
 				title: "Todo List - nuxt-boilerplate",
 				description: "Boilerplate is a Boilerplate",
-				image: process.env.hostName + "/share.png",
-				url: process.env.hostName
+				image: process.env.NUXT_ENV_HOST_NAME + "/card_img.png",
+				url: process.env.NUXT_ENV_HOST_NAME
 			})
 		],
-		link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]
+		link: [{ rel: "icon", type: "image/png", href: "/favicon.png" }]
 	},
 
 	// Global CSS (https://go.nuxtjs.dev/config-css)
@@ -59,15 +59,15 @@ export default {
 		// https://github.com/nuxt-community/tailwindcss-module
 		"@nuxtjs/tailwindcss",
 		// https://github.com/nuxt-community/dotenv-module
-		"@nuxtjs/dotenv"
+		"@nuxtjs/dotenv",
+		// https://go.nuxtjs.dev/pwa
+		"@nuxtjs/pwa"
 	],
 
 	// Modules (https://go.nuxtjs.dev/config-modules)
 	modules: [
 		// https://go.nuxtjs.dev/axios
 		"@nuxtjs/axios",
-		// https://go.nuxtjs.dev/pwa
-		"@nuxtjs/pwa",
 		// https://go.nuxtjs.dev/content
 		"@nuxt/content",
 		// https://i18n.nuxtjs.org/
@@ -112,5 +112,14 @@ export default {
 				extensions: ["js", "ts"]
 			}
 		]
+	},
+	pwa: {
+		manifest: {
+			name: "Todo List",
+			description: "Boilerplate is a Boilerplate",
+			lang: "fr",
+			useWebmanifestExtension: false,
+			source: "/icon.png"
+		}
 	}
 }
