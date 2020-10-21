@@ -1,4 +1,4 @@
-export const createSEOMeta = (data) => [
+export const createSEOMeta = (data: any) => [
 	{ hid: "og:title", property: "og:title", content: data.title },
 	{ hid: "description", name: "description", content: data.description },
 	{
