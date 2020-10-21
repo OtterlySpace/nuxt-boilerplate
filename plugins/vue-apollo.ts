@@ -7,7 +7,7 @@ import { InMemoryCache } from "apollo-cache-inmemory"
 // HTTP connection to the API
 const httpLink = createHttpLink({
 	// You should use an absolute URL here
-	uri: `${process.env.API_URL}/graphql`,
+	uri: `${process.env.apiUrl}/graphql`,
 	// @ts-ignore
 	fetch,
 	credentials: "include"
