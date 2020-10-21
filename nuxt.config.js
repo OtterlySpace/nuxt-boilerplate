@@ -31,8 +31,8 @@ export default {
 			...createSEOMeta({
 				title: "Todo List - nuxt-boilerplate",
 				description: "Boilerplate is a Boilerplate",
-				image: process.env.hostName + "/share.png",
-				url: process.env.hostName
+				image: process.env.NUXT_ENV_HOST_NAME + "/share.png",
+				url: process.env.NUXT_ENV_HOST_NAME
 			})
 		],
 		link: [{ rel: "icon", type: "image/png", href: "/favicon.png" }]
