@@ -2,7 +2,7 @@
 	<div class="container mx-auto px-2">
 		<div>
 			<Header :options="headerOptions" />
-			<transition name="fade">
+			<transition name="fade" appear>
 				<div class="grid grid-cols-1 gap-4">
 					<H1 :content="$t('onboard.welcome')" />
 					<Introduction :content="$t('onboard.intro')" />
