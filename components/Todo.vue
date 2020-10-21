@@ -69,7 +69,7 @@
 					<div class="flex-grow font-medium">
 						{{ todo.title }}
 					</div>
-					<div class="" @click="removeTodo">
+					<div class="" @click.stop="removeTodo">
 						<svg
 							class="w-6 h-6"
 							fill="none"
