@@ -100,13 +100,13 @@ export default {
 		mode: "postcss",
 		extractors: [
 			{
-				extractor(content) {
+				extractor (content) {
 					return content.match(/[\w-.:/]+(?<!:)/g)
 				},
 				extensions: ["html", "vue", "js", "ts"]
 			},
 			{
-				extractor(content) {
+				extractor (content) {
 					return content.match(/[A-Za-z0-9-_:/]+/g)
 				},
 				extensions: ["js", "ts"]
@@ -115,11 +115,17 @@ export default {
 	},
 	pwa: {
 		manifest: {
-			name: "Todo List",
+			name: "Otterly Todo List",
+			short_name: "Todo List",
+			author: "Otterly.Space",
+			theme_color: "#5a67d8",
+			background_color: "#5a67d8",
 			description: "Boilerplate is a Boilerplate",
 			lang: "fr",
-			useWebmanifestExtension: false,
-			source: "/icon.png"
+			mobileAppIOS: true
+		},
+		icon: {
+			source: "~/static/icon.png"
 		}
 	}
 }
