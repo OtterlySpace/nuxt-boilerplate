@@ -41,13 +41,11 @@
 import { Component, Vue } from "nuxt-property-decorator"
 import { Getter, Action } from "vuex-class"
 
-@Component({})
+@Component({transition:"home"})
 export default class HomePage extends Vue {
 	@Action("user/loginUser") loginUserAction: any
 	@Action("user/loadUser") loadUserAction: any
 	@Getter("user/getUser") user: any
-
-	layout = "default"
 
 	headerOptions = {
 		active: false
