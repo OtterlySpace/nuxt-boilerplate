@@ -34,7 +34,7 @@ export default {
 	},
 
 	// Global CSS (https://go.nuxtjs.dev/config-css)
-	css: [],
+	css: ["~/assets/main.css"],
 
 	// Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
 	plugins: [
@@ -95,13 +95,13 @@ export default {
 		mode: "postcss",
 		extractors: [
 			{
-				extractor (content) {
+				extractor(content) {
 					return content.match(/[\w-.:/]+(?<!:)/g)
 				},
 				extensions: ["html", "vue", "js", "ts"]
 			},
 			{
-				extractor (content) {
+				extractor(content) {
 					return content.match(/[A-Za-z0-9-_:/]+/g)
 				},
 				extensions: ["js", "ts"]

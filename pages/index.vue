@@ -2,37 +2,41 @@
 	<div class="container mx-auto px-2">
 		<div>
 			<Header :options="headerOptions" />
-			<div class="grid grid-cols-1 gap-4">
-				<H1 :content="$t('onboard.welcome')" />
-				<Introduction :content="$t('onboard.intro')" />
+			<transition name="fade">
+				<div class="grid grid-cols-1 gap-4">
+					<H1 :content="$t('onboard.welcome')" />
+					<Introduction :content="$t('onboard.intro')" />
 
-				<t-input
-					v-model="username"
-					:placeholder="$t('user.username')"
-					type="text"
-				/>
+					<t-input
+						v-model="username"
+						:placeholder="$t('user.username')"
+						type="text"
+					/>
 
-				<t-input
-					v-model="password"
-					:placeholder="$t('user.password')"
-					type="password"
-					@keyup.enter.native="login"
-				/>
+					<t-input
+						v-model="password"
+						:placeholder="$t('user.password')"
+						type="password"
+						@keyup.enter.native="login"
+					/>
 
-				<t-button @click="login">{{ $t("actions.login") }}</t-button>
+					<t-button @click="login">{{
+						$t("actions.login")
+					}}</t-button>
 
-				<t-alert
-					variant="danger"
-					:dismissible="false"
-					:show="submitReturnError"
-				>
-					{{ $t("alert.loginUser.error") }}
-				</t-alert>
+					<t-alert
+						variant="danger"
+						:dismissible="false"
+						:show="submitReturnError"
+					>
+						{{ $t("alert.loginUser.error") }}
+					</t-alert>
 
-				<t-button variant="link" @click="register">{{
-					$t("actions.register")
-				}}</t-button>
-			</div>
+					<t-button variant="link" @click="register">{{
+						$t("actions.register")
+					}}</t-button>
+				</div>
+			</transition>
 		</div>
 	</div>
 </template>
@@ -46,8 +50,6 @@ export default class HomePage extends Vue {
 	@Action("user/loginUser") loginUserAction: any
 	@Action("user/loadUser") loadUserAction: any
 	@Getter("user/getUser") user: any
-
-	layout = "default"
 
 	headerOptions = {
 		active: false
