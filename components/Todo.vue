@@ -3,9 +3,10 @@
 		<div v-if="todo.done">
 			<div
 				class="cursor-pointer bg-gray-100 rounded p-4 h-full items-center"
+				@click="uncheckTodo"
 			>
 				<div class="flex">
-					<div class="" @click="uncheckTodo">
+					<div>
 						<svg
 							class="w-6 h-6 mr-3"
 							fill="none"
@@ -46,9 +47,10 @@
 		<div v-else>
 			<div
 				class="cursor-pointer bg-gray-200 rounded p-4 h-full items-center"
+				@click="checkTodo"
 			>
 				<div class="flex">
-					<div class="" @click="checkTodo">
+					<div>
 						<svg
 							class="w-6 h-6 mr-3"
 							fill="none"
@@ -64,7 +66,9 @@
 							></path>
 						</svg>
 					</div>
-					<div class="flex-grow font-medium">{{ todo.title }}</div>
+					<div class="flex-grow font-medium">
+						{{ todo.title }}
+					</div>
 					<div class="" @click="removeTodo">
 						<svg
 							class="w-6 h-6"

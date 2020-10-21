@@ -9,11 +9,16 @@ export default {
 
 	env: {
 		apiUrl:
-			process.env.NUXT_ENV_API_URL || "https://api.localhost.otterly.eu"
+			process.env.NUXT_ENV_API_URL || "https://api.localhost.otterly.eu",
+		hostName:
+			process.env.NUXT_ENV_HOST_NAME || "https://localhost.otterly.eu"
 	},
 
 	// Global page headers (https://go.nuxtjs.dev/config-head)
 	head: {
+		htmlAttrs: {
+			lang: "fr"
+		},
 		titleTemplate: "%s - nuxt-boilerplate",
 		title: "Todo List",
 		meta: [
@@ -24,17 +29,17 @@ export default {
 			},
 			{ hid: "description", name: "description", content: "" },
 			...createSEOMeta({
-				title: "Boilerplate",
+				title: "Todo List - nuxt-boilerplate",
 				description: "Boilerplate is a Boilerplate",
-				image: "share.png",
-				url: process.env.HOST_NAME
+				image: process.env.hostName + "/share.png",
+				url: process.env.hostName
 			})
 		],
 		link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]
 	},
 
 	// Global CSS (https://go.nuxtjs.dev/config-css)
-	css: [],
+	css: ["~/assets/main.css"],
 
 	// Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
 	plugins: [
@@ -95,13 +100,13 @@ export default {
 		mode: "postcss",
 		extractors: [
 			{
-				extractor (content) {
+				extractor(content) {
 					return content.match(/[\w-.:/]+(?<!:)/g)
 				},
 				extensions: ["html", "vue", "js", "ts"]
 			},
 			{
-				extractor (content) {
+				extractor(content) {
 					return content.match(/[A-Za-z0-9-_:/]+/g)
 				},
 				extensions: ["js", "ts"]
