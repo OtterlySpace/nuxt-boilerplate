@@ -86,6 +86,7 @@ export default class TodosPage extends Vue {
 		if (this.title) {
 			this.addTodo()
 		} else {
+			// @ts-ignore
 			this.$refs.titleInput.focus()
 		}
 	}
