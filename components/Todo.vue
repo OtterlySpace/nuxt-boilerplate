@@ -35,7 +35,13 @@
 					</svg>
 				</div>
 			</div>
-			<div class="flex-grow py-4 font-medium" v-bind:class="{ 'line-through' : todo.done }" @click.stop="toggleTodo">{{ todo.title }}</div>
+			<div
+				class="flex-grow py-4 font-medium"
+				:class="{ 'line-through': todo.done }"
+				@click.stop="toggleTodo"
+			>
+				{{ todo.title }}
+			</div>
 		</div>
 		<div class="p-4" @click.stop="removeTodo">
 			<svg
