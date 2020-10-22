@@ -14,7 +14,7 @@
 					<t-input
 						v-model="email"
 						:placeholder="$t('user.email')"
-						type="text"
+						type="email"
 					/>
 
 					<t-input
