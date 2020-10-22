@@ -84,13 +84,13 @@ export default {
 		mode: "postcss",
 		extractors: [
 			{
-				extractor (content) {
+				extractor(content) {
 					return content.match(/[\w-.:/]+(?<!:)/g)
 				},
 				extensions: ["html", "vue", "js", "ts"]
 			},
 			{
-				extractor (content) {
+				extractor(content) {
 					return content.match(/[A-Za-z0-9-_:/]+/g)
 				},
 				extensions: ["js", "ts"]
