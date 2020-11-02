@@ -1,5 +1,7 @@
 # nuxt-boilerplate
 
+Nuxt-boilerplate est une base sur NuxtJS, pour vous permettre de réaliser vos propres sites et applications facilement, rapidement et de façon optimisé.
+
 ## Guide FR pour nuxt-boilerplate
 https://www.notion.so/otterlyspace/D-couvrez-le-boilerplate-NuxtJS-d-Otterly-Space-b8b70437a96d4888a4c627077e368a1f
 
