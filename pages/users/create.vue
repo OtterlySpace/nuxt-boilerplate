@@ -21,7 +21,7 @@
 						v-model="password"
 						:placeholder="$t('user.password')"
 						type="password"
-						@keyup.enter.native="login"
+						@keyup.enter.native="register"
 					/>
 					<t-button @click="register">{{
 						$t("actions.register")
