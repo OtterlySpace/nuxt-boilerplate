@@ -3,25 +3,27 @@
 		<div>
 			<Header display-logout />
 			<transition name="fade" appear>
-				<div
-					class="flex rounded lg:px-0 px-4 mt-2 mb-8 h-full items-center"
-				>
-					<svg
-						class="w-6 h-6 mr-3"
-						fill="none"
-						stroke="currentColor"
-						viewBox="0 0 24 24"
-						xmlns="http://www.w3.org/2000/svg"
-					>
-						<path
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							stroke-width="2"
-							d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
-						></path>
-					</svg>
+				<div class="flex lg:px-0 mt-2 mb-8 h-full items-center">
+					<div class="cursor-pointer p-4" @click.stop="clickIconAdd">
+						<svg
+							class="w-6 h-6"
+							fill="none"
+							stroke="currentColor"
+							viewBox="0 0 24 24"
+							xmlns="http://www.w3.org/2000/svg"
+						>
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="2"
+								d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
+							></path>
+						</svg>
+					</div>
+
 					<div class="flex-grow">
 						<t-input
+							ref="titleInput"
 							v-model="title"
 							:placeholder="$t('todo.title')"
 							type="text"
@@ -78,6 +80,15 @@ export default class TodosPage extends Vue {
 			.catch((err: any) => {
 				console.log(err)
 			})
+	}
+
+	clickIconAdd() {
+		if (this.title) {
+			this.addTodo()
+		} else {
+			// @ts-ignore
+			this.$refs.titleInput.focus()
+		}
 	}
 }
 </script>

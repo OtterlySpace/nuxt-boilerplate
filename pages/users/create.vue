@@ -14,14 +14,14 @@
 					<t-input
 						v-model="email"
 						:placeholder="$t('user.email')"
-						type="text"
+						type="email"
 					/>
 
 					<t-input
 						v-model="password"
 						:placeholder="$t('user.password')"
 						type="password"
-						@keyup.enter.native="login"
+						@keyup.enter.native="register"
 					/>
 					<t-button @click="register">{{
 						$t("actions.register")
