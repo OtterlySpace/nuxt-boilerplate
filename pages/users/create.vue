@@ -8,18 +8,18 @@
 
 					<t-input
 						v-model="username"
-						:placeholder="$t('user.username')"
+						:placeholder="$t('user.create.username')"
 						type="text"
 					/>
 					<t-input
 						v-model="email"
-						:placeholder="$t('user.email')"
+						:placeholder="$t('user.create.email')"
 						type="email"
 					/>
 
 					<t-input
 						v-model="password"
-						:placeholder="$t('user.password')"
+						:placeholder="$t('user.create.password')"
 						type="password"
 						@keyup.enter.native="register"
 					/>
