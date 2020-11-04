@@ -4,7 +4,7 @@
 			<Header :options="headerOptions" />
 			<transition name="fade" appear>
 				<div class="grid grid-cols-1 gap-4">
-					<H1 :content="$t('onboard.welcome')" />
+					<Introduction :content="$t('onboard.welcome')" />
 					<Introduction :content="$t('onboard.intro')" />
 
 					<t-input
