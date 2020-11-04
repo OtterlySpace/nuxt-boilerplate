@@ -1,6 +1,6 @@
 <template>
 	<header class="text-gray-700 body-font">
-		<div class="flex justify-between items-center py-5">
+		<div class="flex justify-between items-center sm:py-5 pt-2 pb-4">
 			<nuxt-link
 				v-if="!displayLogout"
 				to="/"
@@ -11,7 +11,6 @@
 					width="60"
 					alt="Le logo d'Otterly"
 				/>
-				<span class="sm:ml-2 text-xl">{{ $t("app.name") }}</span>
 			</nuxt-link>
 			<nuxt-link
 				v-if="displayLogout"

@@ -1,14 +1,19 @@
 {
   "user": {
-    "username": "Username",
-    "email": "Email address",
+    "username": "Username or email address",
+    "email": "E-mail adress",
     "password": "Password",
-    "password-repeat": "Repeat password"
+    "password-repeat": "Repeat password",
+    "create": {
+      "username": "Enter your username",
+      "email": "Enter your e-mail",
+      "password": "Enter your password"
+    }
   },
   "onboard": {
     "intro": "Log in to view your to-do list",
-    "welcome": "👋 Welcome",
-    "register-form": "This is a registration form"
+    "welcome": "👋 Glad to see you again",
+    "register-form": "Your username, email and password, that's it."
   },
   "actions": {
     "login": "Log in",

@@ -1,14 +1,19 @@
 {
   "user": {
-    "username": "Nom d'utilisateur",
-    "email": "Adresse électronique",
+    "username": "Nom d'utilisateur ou adresse mail",
+    "email": "Adresse email",
     "password": "Mot de passe",
-    "password-repeat": "Répéter le mot de passe"
+    "password-repeat": "Répéter le mot de passe",
+    "create": {
+      "username": "Entrer votre nom d'utilisateur",
+      "email": "Entrer votre e-mail",
+      "password": "Entrer votre mot de passe"
+    }
   },
   "onboard": {
-    "intro": "Connectez vous pour consulter votre liste de chose à faire",
-    "welcome": "👋 Bienvenue",
-    "register-form": "Ceci est un formulaire d'inscription"
+    "intro": "Connectez-vous pour consulter votre liste de chose à faire",
+    "welcome": "👋 Heureux de vous revoir",
+    "register-form": "Votre nom d'utilisateur, votre e-mail et un mot de passe, c'est tout."
   },
   "actions": {
     "login": "Se connecter",
