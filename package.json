@@ -32,7 +32,7 @@
     "nuxt": "^2.14.6",
     "nuxt-i18n": "^6.15.3",
     "vue-apollo": "^3.0.5",
-    "vue-tailwind": "^1.2.9",
+    "vue-tailwind": "^2.4.2",
     "vuex-class": "^0.3.2"
   },
   "devDependencies": {
