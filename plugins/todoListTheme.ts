@@ -31,12 +31,10 @@ const TButton = {
 	classes:
 		"text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg text-center",
 	variants: {
-		error:
-			"text-white bg-red-600 hover:bg-red-500 focus:border-red-700  active:bg-red-700 text-lg border border-transparent px-8 py-2 rounded",
+		error: "text-white bg-red-600 hover:bg-red-500 focus:border-red-700  active:bg-red-700 text-lg border border-transparent px-8 py-2 rounded",
 		success:
 			"text-white bg-green-600 hover:bg-green-500 focus:border-green-700 active:bg-green-700 text-lg border border-transparent px-8 py-2 rounded",
-		link:
-			"text-indigo-500 px-8 py-2 hover:bg-indigo-100 rounded text-lg text-center"
+		link: "text-indigo-500 px-8 py-2 hover:bg-indigo-100 rounded text-lg text-center"
 	}
 }
 

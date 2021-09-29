@@ -1,10 +1,15 @@
-FROM node:12.13-alpine
+FROM node:14-alpine
 
-RUN apk add --no-cache git
+RUN apk add --no-cache \
+	git \
+	ca-certificates \
+	python3 make g++
 
 WORKDIR /usr/src/app
 
 COPY package*.json ./
+
+RUN npm install
 
 COPY . .
 

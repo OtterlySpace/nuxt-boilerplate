@@ -1,6 +1,6 @@
 import gql from "graphql-tag"
-import { apolloClient } from "@/plugins/vue-apollo"
 import { User } from "./types"
+import { apolloClient } from "@/plugins/vue-apollo"
 import { errorHandler } from "~/utils/gqlErrorHandler"
 
 interface UserState {
