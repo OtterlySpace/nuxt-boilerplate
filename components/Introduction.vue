@@ -5,6 +5,11 @@
 <script lang="ts">
 export default {
 	name: "Introduction",
-	props: { content: String }
+	props: {
+		content: {
+			type: Number,
+			default: 0
+		}
+	}
 }
 </script>
