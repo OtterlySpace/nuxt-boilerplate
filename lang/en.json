@@ -36,5 +36,10 @@
   },
   "todo": {
     "title": "Add a task"
+  },
+  "error": {
+    "password": {
+      "tooShort": "Password too short"
+    }
   }
 }

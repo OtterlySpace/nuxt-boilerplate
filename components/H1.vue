@@ -2,8 +2,9 @@
 	<div class="text-3xl font-medium">{{ content }}</div>
 </template>
 
-<script>
+<script lang="ts">
 export default {
-	props: ["content"]
+	name: "H1",
+	props: { content: String }
 }
 </script>

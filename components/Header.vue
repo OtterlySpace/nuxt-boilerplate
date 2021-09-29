@@ -26,19 +26,7 @@
 			</nuxt-link>
 			<div
 				v-if="displayLogout"
-				class="
-					cursor-pointer
-					inline-flex
-					items-center
-					bg-gray-200
-					border-0
-					py-1
-					px-3
-					focus:outline-none
-					hover:bg-gray-300
-					rounded
-					text-base
-				"
+				class="cursor-pointer inline-flex items-center bg-gray-200 border-0 py-1 px-3 focus:outline-none hover:bg-gray-300 rounded text-base"
 				@click="logout"
 			>
 				<svg
